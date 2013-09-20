@@ -25,47 +25,38 @@ namespace MapDesigner
 
             for (int i = 0; i < cells.Count; i++)
             {
-                int[] mapData = myMapController.getMapData(i, cells);
-                int column = mapData[0];
-                int row = mapData[1];
-                CellSide right = cells[i].myRightWall;
-                CellSide bottom = cells[i].myBottomWall;
-
-                if (right.hasWall == 0)
-                {
-                    g.DrawLine(setPen(right), column + myMapController.myMap.myCellSize,
-                    row - 1, column + myMapController.myMap.myCellSize, row + 1 + myMapController.myMap.myCellSize);
-                }
-                if (bottom.hasWall == 0)
-                {
-                    g.DrawLine(setPen(bottom), column + 1 + myMapController.myMap.myCellSize,
-                    row + myMapController.myMap.myCellSize, column - 1, row + myMapController.myMap.myCellSize);
-                }
+                drawWalls(0, i, cells, g);
             }
             for (int i = 0; i < cells.Count; i++)
             {
-                int[] mapData = myMapController.getMapData(i, cells);
-                int column = mapData[0];
-                int row = mapData[1];
-                CellSide right = cells[i].myRightWall;
-                CellSide bottom = cells[i].myBottomWall;
-
-                if (right.hasWall == 1)
-                {
-                    g.DrawLine(setPen(right), column + myMapController.myMap.myCellSize,
-                    row - 1, column + myMapController.myMap.myCellSize, row + 1 + myMapController.myMap.myCellSize);
-                }
-                if (bottom.hasWall == 1)
-                {
-                    g.DrawLine(setPen(bottom), column + 1 + myMapController.myMap.myCellSize,
-                    row + myMapController.myMap.myCellSize, column - 1, row + myMapController.myMap.myCellSize);
-                }
-            
+                drawWalls(1, i, cells, g);
             }
             drawMapEdges(e);
             drawMinotaur(e, cells);
             drawTheseus(e, cells);
             drawExit(e, cells);
+        }
+
+        void drawWalls(int wall, int i, List<Cell> cells, Graphics g)
+        {
+            int[] mapData = myMapController.getMapData(i, cells);
+            int startOfCol = mapData[0];
+            int endOfCol = mapData[1];
+            int startOfRow = mapData[2];
+            int endOfRow = mapData[3];
+            CellSide rightSide = cells[i].myRightWall;
+            CellSide bottomSide = cells[i].myBottomWall;
+
+            if (rightSide.hasWall == wall)
+            {
+                g.DrawLine(setPen(rightSide), endOfCol,
+                startOfRow - 1, endOfCol, endOfRow + 1);
+            }
+            if (bottomSide.hasWall == wall)
+            {
+                g.DrawLine(setPen(bottomSide), endOfCol + 1,
+                endOfRow, startOfCol - 1, endOfRow);
+            }
         }
 
         public void drawMapEdges(PaintEventArgs e)
@@ -115,13 +106,13 @@ namespace MapDesigner
             for (int i = 0; i < cells.Count; i++)
             {
                 int[] mapData = myMapController.getMapData(i, cells);
-                int column = mapData[0];
-                int row = mapData[1];
+                int startOfCol = mapData[0];
+                int startOfRow = mapData[2];
 
                 Bitmap cellBG = cells[i].myBgImage;
 
-                g.DrawImage(cellBG, new RectangleF(new Point(column,
-                row), new SizeF(myMapController.myMap.myCellSize, myMapController.myMap.myCellSize)));
+                g.DrawImage(cellBG, new RectangleF(new Point(startOfCol,
+                startOfRow), new SizeF(myMapController.myMap.myCellSize, myMapController.myMap.myCellSize)));
             }
         }
 
@@ -133,15 +124,15 @@ namespace MapDesigner
             for (int i = 0; i < cells.Count; i++)
             {
                 int[] mapData = myMapController.getMapData(i, cells);
-                int column = mapData[0];
-                int row = mapData[1];
+                int startOfCol = mapData[0];
+                int startOfRow = mapData[2];
 
                 Bitmap minotaur = myMapController.myMap.minotaur;
 
                 if (cells[i].hasMinotaur)
                 {
-                    g.DrawImage(minotaur, new RectangleF(new Point(column,
-                    row), new SizeF(myMapController.myMap.myCellSize, myMapController.myMap.myCellSize)));
+                    g.DrawImage(minotaur, new RectangleF(new Point(startOfCol,
+                    startOfRow), new SizeF(myMapController.myMap.myCellSize, myMapController.myMap.myCellSize)));
                 }
             }
         }
@@ -154,15 +145,15 @@ namespace MapDesigner
             for (int i = 0; i < cells.Count; i++)
             {
                 int[] mapData = myMapController.getMapData(i, cells);
-                int column = mapData[0];
-                int row = mapData[1];
+                int startOfCol = mapData[0];
+                int startOfRow = mapData[2];
 
                 Bitmap theseus = myMapController.myMap.theseus;
 
                 if (cells[i].hasTheseus)
                 {
-                    g.DrawImage(theseus, new RectangleF(new Point(column,
-                    row), new SizeF(myMapController.myMap.myCellSize, myMapController.myMap.myCellSize)));
+                    g.DrawImage(theseus, new RectangleF(new Point(startOfCol,
+                    startOfRow), new SizeF(myMapController.myMap.myCellSize, myMapController.myMap.myCellSize)));
                 }
             }
         }
@@ -175,15 +166,15 @@ namespace MapDesigner
             for (int i = 0; i < cells.Count; i++)
             {
                 int[] mapData = myMapController.getMapData(i, cells);
-                int column = mapData[0];
-                int row = mapData[1];
+                int startOfCol = mapData[0];
+                int startOfRow = mapData[2];
 
                 Bitmap exit = myMapController.myMap.exitImage;
 
                 if (cells[i].isExit)
                 {
-                    g.DrawImage(exit, new RectangleF(new Point(column,
-                    row), new SizeF(myMapController.myMap.myCellSize, myMapController.myMap.myCellSize)));
+                    g.DrawImage(exit, new RectangleF(new Point(startOfCol,
+                    startOfRow), new SizeF(myMapController.myMap.myCellSize, myMapController.myMap.myCellSize)));
                 }
             }
         }

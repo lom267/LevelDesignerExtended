@@ -89,13 +89,6 @@ namespace MapDesigner
             myMap.myHeight = myMap.myCellSize * myMap.rows;
         }
 
-      /*  private void setExitCellPlacement()
-        {
-            Object selectedItem = myMap.myForm.cbxExitCell.SelectedItem;
-            myMap.exitCellPlacement = selectedItem.ToString();
-            myMap.myForm.label2.Text = myMap.exitCellPlacement;
-        }*/
-
         public void setMapComponents()
         {
             setMapDimensions();
@@ -105,6 +98,7 @@ namespace MapDesigner
             setBoardPosition();
             setCellBgImage();
         }
+
         public void setCellBgImage()
         {
             if (myMap.myForm.rbWood.Checked == true)
@@ -146,12 +140,14 @@ namespace MapDesigner
 
         public int[] getMapData(int i, List<Cell> cell)
         {
-            int column = myMap.boardXPos + myMap.myCells[i].myColumn * myMap.myCellSize;
-            int row = myMap.boardYPos + myMap.myCells[i].myRow * myMap.myCellSize;
+            int startOfCol = myMap.boardXPos + myMap.myCells[i].myColumn * myMap.myCellSize;
+            int endOfCol = startOfCol + myMap.myCellSize;
+            int startOfRow = myMap.boardYPos + myMap.myCells[i].myRow * myMap.myCellSize;
+            int endOfRow = startOfRow + myMap.myCellSize;
             int right = myMap.myCells[i].myRightWall.hasWall;
             int bottom = myMap.myCells[i].myBottomWall.hasWall;
 
-            return new int[] { column, row, right, bottom };
+            return new int[] { startOfCol, endOfCol, startOfRow, endOfRow, right, bottom };
         }
     }
 }

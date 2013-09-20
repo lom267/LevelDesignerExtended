@@ -23,15 +23,15 @@ namespace MapDesigner
             for (int i = 0; i < cells.Count; i++)
             {
                 int[] mapData = myMapController.getMapData(i, cells);
-                int column = mapData[0];
-                int row = mapData[1];
-                int right = mapData[2];
-                int bottom = mapData[3];
+                int startOfCol = mapData[0];
+                int endOfCol = mapData[1];
+                int startOfRow = mapData[2];
+                int endOfRow = mapData[3];
                 int forgiveness = 10;
 
-                if (e.X > column + myMapController.myMap.myCellSize - forgiveness &&
-                    e.X < column + myMapController.myMap.myCellSize + forgiveness &&
-                    e.Y > row && e.Y < row + myMapController.myMap.myCellSize)
+                if (e.X > endOfCol - forgiveness &&
+                    e.X < endOfCol + forgiveness &&
+                    e.Y > startOfRow && e.Y < endOfRow)
                 {
                     myMapController.myMap.myCells[i].myRightWall.isHighlighted = true;
                 }
@@ -40,9 +40,9 @@ namespace MapDesigner
                     myMapController.myMap.myCells[i].myRightWall.isHighlighted = false;
                 }
 
-                if (e.Y > row + myMapController.myMap.myCellSize - forgiveness &&
-                    e.Y < row + myMapController.myMap.myCellSize + forgiveness &&
-                    e.X > column && e.X < column + myMapController.myMap.myCellSize)
+                if (e.Y > endOfRow - forgiveness &&
+                    e.Y < endOfRow + forgiveness &&
+                    e.X > startOfCol && e.X < endOfCol)
                 {
                     myMapController.myMap.myCells[i].myBottomWall.isHighlighted = true;
                 }
@@ -58,17 +58,17 @@ namespace MapDesigner
             for (int i = 0; i < cells.Count; i++)
             {
                 int[] mapData = myMapController.getMapData(i, cells);
-                int column = mapData[0];
-                int row = mapData[1];
-                int right = mapData[2];
-                int bottom = mapData[3];
+                int startOfCol = mapData[0];
+                int endOfCol = mapData[1];
+                int startOfRow = mapData[2];
+                int endOfRow = mapData[3];
 
                 Point RelativeMouseLoc = myMapController.myMap.myForm.pbxMap.PointToClient(Cursor.Position);
-                
-                if (RelativeMouseLoc.X > column &&
-                    RelativeMouseLoc.X < column + myMapController.myMap.myCellSize
-                    && RelativeMouseLoc.Y > row && RelativeMouseLoc.Y <
-                    row + myMapController.myMap.myCellSize)
+
+                if (RelativeMouseLoc.X > startOfCol &&
+                    RelativeMouseLoc.X < endOfCol
+                    && RelativeMouseLoc.Y > startOfRow && RelativeMouseLoc.Y <
+                    endOfRow)
                 {
                     myMapController.myMap.myCells[i].hasMinotaur = true;
                 }
@@ -84,17 +84,17 @@ namespace MapDesigner
             for (int i = 0; i < cells.Count; i++)
             {
                 int[] mapData = myMapController.getMapData(i, cells);
-                int column = mapData[0];
-                int row = mapData[1];
-                int right = mapData[2];
-                int bottom = mapData[3];
+                int startOfCol = mapData[0];
+                int endOfCol = mapData[1];
+                int startOfRow = mapData[2];
+                int endOfRow = mapData[3];
 
                 Point RelativeMouseLoc = myMapController.myMap.myForm.pbxMap.PointToClient(Cursor.Position);
 
-                if (RelativeMouseLoc.X > column &&
-                    RelativeMouseLoc.X < column + myMapController.myMap.myCellSize
-                    && RelativeMouseLoc.Y > row && RelativeMouseLoc.Y <
-                    row + myMapController.myMap.myCellSize)
+                if (RelativeMouseLoc.X > startOfCol &&
+                    RelativeMouseLoc.X < endOfCol
+                    && RelativeMouseLoc.Y > startOfRow && RelativeMouseLoc.Y <
+                    endOfRow)
                 {
                     myMapController.myMap.myCells[i].hasTheseus = true;
                 }
@@ -107,26 +107,30 @@ namespace MapDesigner
 
         public void setExit(DragEventArgs e, List<Cell> cells)
         {
+            Point mouse = myMapController.myMap.myForm.pbxMap.PointToClient(Cursor.Position);
+            int col = (mouse.X - myMapController.myMap.boardXPos) / myMapController.myMap.myCellSize;
+            int row = (mouse.Y - myMapController.myMap.boardYPos) / myMapController.myMap.myCellSize;
+
             for (int i = 0; i < cells.Count; i++)
             {
                 int[] mapData = myMapController.getMapData(i, cells);
-                int column = mapData[0];
-                int row = mapData[1];
-                int right = mapData[2];
-                int bottom = mapData[3];
+                int startOfCol = mapData[0];
+                int endOfCol = mapData[1];
+                int startOfRow = mapData[2];
+                int endOfRow = mapData[3];
 
-                Point RelativeMouseLoc = myMapController.myMap.myForm.pbxMap.PointToClient(Cursor.Position);
-
-                if (RelativeMouseLoc.X > column &&
-                    RelativeMouseLoc.X < column + myMapController.myMap.myCellSize
-                    && RelativeMouseLoc.Y > row && RelativeMouseLoc.Y <
-                    row + myMapController.myMap.myCellSize)
+                Cell cell = myMapController.myMap.myCells[i];
+                int index = cells.FindIndex(item => item.myColumn == col && item.myRow == row);
+                if (index >= 0)
                 {
-                    myMapController.myMap.myCells[i].isExit = true;
+                    if (cell.myColumn == col && cell.myRow == row)
+                    {
+                        cell.isExit = true;
+                    }
                 }
                 else
                 {
-                    myMapController.myMap.myCells[i].isExit = false;
+                    cell.isExit = false;
                 }
             }
         }
@@ -137,52 +141,42 @@ namespace MapDesigner
 
             int col = (mouse.X - myMapController.myMap.boardXPos) / myMapController.myMap.myCellSize;
             int row = (mouse.Y - myMapController.myMap.boardYPos) / myMapController.myMap.myCellSize;
-         //   int startOfCol = (col * myMapController.myMap.myCellSize) + myMapController.myMap.boardXPos;
-          //  int endOfCol = startOfCol + myMapController.myMap.myCellSize;
-          //  int startOfRow = (row * myMapController.myMap.myCellSize) + myMapController.myMap.boardYPos;
-          //  int endOfRow = startOfRow + myMapController.myMap.myCellSize;
 
             for (int i = 0; i < cells.Count; i++)
             {
                 Cell cell = myMapController.myMap.myCells[i];
-               
-                //if (mouse.X > startOfCol && mouse.X < endOfCol &&
-                 //   mouse.Y > startOfRow && mouse.Y < endOfRow)
-               // {
-                    int index = cells.FindIndex(item => item.myColumn == col && item.myRow == row);
-                    if (index >= 0)
+                int index = cells.FindIndex(item => item.myColumn == col && item.myRow == row);
+                if (index >= 0)
+                {
+                    if (cell.myColumn == col && cell.myRow == row)
                     {
-                        if (cell.myColumn == col && cell.myRow == row)
-                        {
-                            cells.Remove(cell);
-                            return;
-                        }
-                    }
-                    else
-                    {
-                        Bitmap image = myMapController.myMap.cellBgImage;
-                        cells.Add(new Cell(col, row, new CellSide(0, false), new CellSide(0, false), myMapController.myMap, image));
+                        cells.Remove(cell);
                         return;
                     }
-               // }
+                }
+                else
+                {
+                    Bitmap image = myMapController.myMap.cellBgImage;
+                    cells.Add(new Cell(col, row, new CellSide(0, false), new CellSide(0, false), myMapController.myMap, image));
+                    return;
+                }
             }
         }
-
 
         public void onMouseClick(MouseEventArgs e, List<Cell> cells)
         {
             for (int i = 0; i < cells.Count; i++)
             {
                 int[] mapData = myMapController.getMapData(i, cells);
-                int column = mapData[0];
-                int row = mapData[1];
-                int right = mapData[2];
-                int bottom = mapData[3];
+                int startOfCol = mapData[0];
+                int endOfCol = mapData[1];
+                int startOfRow = mapData[2];
+                int endOfRow = mapData[3];
                 int forgiveness = 10;
 
-                if (e.X > column + myMapController.myMap.myCellSize - forgiveness &&
-                    e.X < column + myMapController.myMap.myCellSize + forgiveness &&
-                    e.Y > row && e.Y < row + myMapController.myMap.myCellSize)
+                if (e.X > endOfCol - forgiveness &&
+                    e.X < endOfCol + forgiveness &&
+                    e.Y > startOfRow && e.Y < endOfRow)
                 {
                     if (myMapController.myMap.myCells[i].myRightWall.hasWall == 1)
                     {
@@ -194,9 +188,9 @@ namespace MapDesigner
                     }
                 }
 
-                if (e.Y > row + myMapController.myMap.myCellSize - forgiveness &&
-                    e.Y < row + myMapController.myMap.myCellSize + forgiveness &&
-                    e.X > column && e.X < column + myMapController.myMap.myCellSize)
+                if (e.Y > endOfRow - forgiveness &&
+                    e.Y < endOfRow + forgiveness &&
+                    e.X > startOfCol && e.X < endOfCol)
                 {
                     if (myMapController.myMap.myCells[i].myBottomWall.hasWall == 1)
                     {
