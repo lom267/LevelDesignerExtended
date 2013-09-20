@@ -113,8 +113,16 @@ namespace MapDesigner
 
                 g.DrawImage(cellBG, new RectangleF(new Point(startOfCol,
                 startOfRow), new SizeF(myMapController.myMap.myCellSize, myMapController.myMap.myCellSize)));
+
+                if (cells[i].isHighlighted == true)
+                {
+                    Brush brush = new SolidBrush(Color.FromArgb(80, 77, 255, 204));
+                    g.FillRectangle(brush, startOfCol, startOfRow, myMapController.myMap.myCellSize, myMapController.myMap.myCellSize);
+                }
             }
         }
+
+        
 
         public void drawMinotaur(PaintEventArgs e, List<Cell> cells)
         {

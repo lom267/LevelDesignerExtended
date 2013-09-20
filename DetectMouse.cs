@@ -53,6 +53,43 @@ namespace MapDesigner
             }
         }
 
+        public void highlightCell(MouseEventArgs e, List<Cell> cells)
+        {
+            Point mouse = myMapController.myMap.myForm.pbxMap.PointToClient(Cursor.Position);
+
+            int col = (mouse.X - myMapController.myMap.boardXPos) / myMapController.myMap.myCellSize;
+            int row = (mouse.Y - myMapController.myMap.boardYPos) / myMapController.myMap.myCellSize;
+
+            for (int i = 0; i < cells.Count; i++)
+            {
+                int[] mapData = myMapController.getMapData(i, cells);
+                int startOfCol = mapData[0];
+                int endOfCol = mapData[1];
+                int startOfRow = mapData[2];
+                int endOfRow = mapData[3];
+
+                Cell cell = myMapController.myMap.myCells[i];
+                if (mouse.X > startOfCol &&
+                    mouse.X < endOfCol
+                    && mouse.Y > startOfRow && mouse.Y <
+                    endOfRow)
+                {
+                    if (cell.myColumn == col && cell.myRow == row)
+                    {
+                        cell.isHighlighted = true;
+                    }
+                    else
+                    {
+                        cell.isHighlighted = false;
+                    }
+                }
+                else
+                {
+                    cell.isHighlighted = false;
+                }
+            }
+        }
+
         public void setMinotaur(DragEventArgs e, List<Cell> cells)
         { 
             for (int i = 0; i < cells.Count; i++)
@@ -127,11 +164,12 @@ namespace MapDesigner
                     {
                         cell.isExit = true;
                     }
+                    else
+                    {
+                        cell.isExit = false;
+                    }
                 }
-                else
-                {
-                    cell.isExit = false;
-                }
+                
             }
         }
 

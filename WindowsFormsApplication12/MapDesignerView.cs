@@ -17,6 +17,7 @@ namespace MapDesigner
         public MapConstructor myMapConstructor { get; set; }
         public MouseEventHandler myDetectMouse { get; set; }
         string dragSourceName;
+        bool btnClicked;
 
         public MapDesignerView()
         {
@@ -32,8 +33,10 @@ namespace MapDesigner
 
         private void btnDraw_Click(object sender, EventArgs e)
         {
+            btnClicked = true;
             myMapController.setMapComponents();
             pbxMap.Invalidate();
+
         }
 
         private void pbxMap_Paint(object sender, PaintEventArgs e)
@@ -58,6 +61,10 @@ namespace MapDesigner
         private void pbxMap_MouseMove(object sender, MouseEventArgs e)
         {
             myDetectMouse.onMouseHover(e, myMap.myCells);
+            if (btnClicked == true)
+            {
+                myDetectMouse.highlightCell(e, myMap.myCells);
+            }
             pbxMap.Invalidate();
         }
 
