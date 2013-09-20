@@ -137,18 +137,18 @@ namespace MapDesigner
 
             int col = (mouse.X - myMapController.myMap.boardXPos) / myMapController.myMap.myCellSize;
             int row = (mouse.Y - myMapController.myMap.boardYPos) / myMapController.myMap.myCellSize;
-            int startOfCol = (col * myMapController.myMap.myCellSize) + myMapController.myMap.boardXPos;
-            int endOfCol = startOfCol + myMapController.myMap.myCellSize;
-            int startOfRow = (row * myMapController.myMap.myCellSize) + myMapController.myMap.boardYPos;
-            int endOfRow = startOfRow + myMapController.myMap.myCellSize;
+         //   int startOfCol = (col * myMapController.myMap.myCellSize) + myMapController.myMap.boardXPos;
+          //  int endOfCol = startOfCol + myMapController.myMap.myCellSize;
+          //  int startOfRow = (row * myMapController.myMap.myCellSize) + myMapController.myMap.boardYPos;
+          //  int endOfRow = startOfRow + myMapController.myMap.myCellSize;
 
             for (int i = 0; i < cells.Count; i++)
             {
                 Cell cell = myMapController.myMap.myCells[i];
                
-                if (mouse.X > startOfCol && mouse.X < endOfCol &&
-                    mouse.Y > startOfRow && mouse.Y < endOfRow)
-                {
+                //if (mouse.X > startOfCol && mouse.X < endOfCol &&
+                 //   mouse.Y > startOfRow && mouse.Y < endOfRow)
+               // {
                     int index = cells.FindIndex(item => item.myColumn == col && item.myRow == row);
                     if (index >= 0)
                     {
@@ -165,7 +165,7 @@ namespace MapDesigner
                         cells.Add(new Cell(col, row, new CellSide(0, false), new CellSide(0, false), myMapController.myMap, image));
                         return;
                     }
-                }
+               // }
             }
         }
 
