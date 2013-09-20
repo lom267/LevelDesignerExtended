@@ -21,6 +21,16 @@ namespace MapDesigner
             this.myMap = map;
         }
 
+        public Cell(int col, int row, CellSide rightWall, CellSide bottomWall, Map map, Bitmap bgImage)
+        {
+            this.myColumn = col;
+            this.myRow = row;
+            this.myRightWall = rightWall;
+            this.myBottomWall = bottomWall;
+            this.myMap = map;
+            this.myBgImage = bgImage;
+        }
+
         public Map myMap { get; set; }
         public Bitmap myBgImage { get; set; }
         public bool hasMinotaur { get; set; }

@@ -63,7 +63,14 @@ namespace MapDesigner
 
         private void pbxMap_MouseUp(object sender, MouseEventArgs e)
         {
-            myDetectMouse.onMouseClick(e, myMap.myCells);
+            if (e.Button == MouseButtons.Left)
+            {
+                myDetectMouse.onMouseClick(e, myMap.myCells);
+            }
+            if (e.Button == MouseButtons.Right)
+            {
+                myDetectMouse.editCell(e, myMap.myCells);
+            }
             pbxMap.Invalidate();
         }
 

@@ -73,15 +73,18 @@ namespace MapDesigner
            // {
 
            // }
-            switch (myMap.exitCellPlacement)
-            {
-                case "Top":
-                    myMap.boardYPos = myMap.myForm.pbxMap.Width - (myMap.myHeight + 2);
-                    myMap.boardXPos = (myMap.myForm.pbxMap.Width / 2) - (myMap.myWidth / 2);
-                    break;
+                    //myMap.boardYPos = myMap.myForm.pbxMap.Width - (myMap.myHeight + 2);
+            double yPos = (myMap.myForm.pbxMap.Height / 2) - (myMap.myHeight / 2);
+            double Xpos = (myMap.myForm.pbxMap.Width / 2) - (myMap.myWidth / 2);
+            Math.Round(yPos, 0);
+            Math.Round(Xpos, 0);
+            myMap.boardXPos = Convert.ToInt32(Xpos);
+            myMap.boardYPos = Convert.ToInt32(yPos);
+
+                    
                     //myMap.boardXPos = 1;
                     
-            }
+            
         }
 
         private void setMapDimensions()
@@ -105,15 +108,12 @@ namespace MapDesigner
 
         public void setMapComponents()
         {
-            
             setMapDimensions();
             setCellSize();
             setCells();
             setMapLengthAndHeight();
-            setCellBgImage();
-            setExitCellPlacement();
             setBoardPosition();
-            
+            setCellBgImage();
         }
         public void setCellBgImage()
         {
