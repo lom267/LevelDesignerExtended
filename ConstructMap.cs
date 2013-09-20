@@ -21,7 +21,6 @@ namespace MapDesigner
         public void drawMap(PaintEventArgs e, List<Cell> cells)
         {
             Graphics g = e.Graphics;
-            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             drawCellBgImage(e, cells);
 
             for (int i = 0; i < cells.Count; i++)
@@ -32,11 +31,36 @@ namespace MapDesigner
                 CellSide right = cells[i].myRightWall;
                 CellSide bottom = cells[i].myBottomWall;
 
-                g.DrawLine(setPen(right), column + myMapController.myMap.myCellSize,
-                row, column + myMapController.myMap.myCellSize, row + myMapController.myMap.myCellSize);
+                if (right.hasWall == 0)
+                {
+                    g.DrawLine(setPen(right), column + myMapController.myMap.myCellSize,
+                    row - 1, column + myMapController.myMap.myCellSize, row + 1 + myMapController.myMap.myCellSize);
+                }
+                if (bottom.hasWall == 0)
+                {
+                    g.DrawLine(setPen(bottom), column + 1 + myMapController.myMap.myCellSize,
+                    row + myMapController.myMap.myCellSize, column - 1, row + myMapController.myMap.myCellSize);
+                }
+            }
+            for (int i = 0; i < cells.Count; i++)
+            {
+                int[] mapData = myMapController.getMapData(i, cells);
+                int column = mapData[0];
+                int row = mapData[1];
+                CellSide right = cells[i].myRightWall;
+                CellSide bottom = cells[i].myBottomWall;
 
-                g.DrawLine(setPen(bottom), column + myMapController.myMap.myCellSize,
-                row + myMapController.myMap.myCellSize, column, row + myMapController.myMap.myCellSize);
+                if (right.hasWall == 1)
+                {
+                    g.DrawLine(setPen(right), column + myMapController.myMap.myCellSize,
+                    row - 1, column + myMapController.myMap.myCellSize, row + 1 + myMapController.myMap.myCellSize);
+                }
+                if (bottom.hasWall == 1)
+                {
+                    g.DrawLine(setPen(bottom), column + 1 + myMapController.myMap.myCellSize,
+                    row + myMapController.myMap.myCellSize, column - 1, row + myMapController.myMap.myCellSize);
+                }
+            
             }
             drawMapEdges(e);
             drawMinotaur(e, cells);

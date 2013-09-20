@@ -30,6 +30,7 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.numCols = new System.Windows.Forms.NumericUpDown();
             this.btnDrawMap = new System.Windows.Forms.Button();
             this.numRows = new System.Windows.Forms.NumericUpDown();
@@ -51,9 +52,6 @@
             this.pbxExit = new System.Windows.Forms.PictureBox();
             this.pbxTheseus = new System.Windows.Forms.PictureBox();
             this.pbxMinotaur = new System.Windows.Forms.PictureBox();
-            this.cbxExitCell = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCols)).BeginInit();
@@ -92,8 +90,6 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.panel1, 2);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.cbxExitCell);
             this.panel1.Controls.Add(this.numCols);
             this.panel1.Controls.Add(this.btnDrawMap);
             this.panel1.Controls.Add(this.numRows);
@@ -113,6 +109,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(878, 179);
             this.panel1.TabIndex = 9;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(612, 145);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "label2";
             // 
             // numCols
             // 
@@ -333,37 +338,6 @@
             this.pbxMinotaur.TabStop = false;
             this.pbxMinotaur.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbxMinotaur_MouseDown);
             // 
-            // cbxExitCell
-            // 
-            this.cbxExitCell.FormattingEnabled = true;
-            this.cbxExitCell.Items.AddRange(new object[] {
-            "Top",
-            "Bottom",
-            "Left",
-            "Right"});
-            this.cbxExitCell.Location = new System.Drawing.Point(680, 58);
-            this.cbxExitCell.Name = "cbxExitCell";
-            this.cbxExitCell.Size = new System.Drawing.Size(121, 21);
-            this.cbxExitCell.TabIndex = 7;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(583, 61);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Exit Cell Placment";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(612, 145);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "label2";
-            // 
             // MapDesignerView
             // 
             this.AllowDrop = true;
@@ -421,8 +395,6 @@
         public System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pbxTheseus;
         private System.Windows.Forms.PictureBox pbxExit;
-        private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.ComboBox cbxExitCell;
         public System.Windows.Forms.Label label2;
 
     }

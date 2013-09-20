@@ -69,22 +69,12 @@ namespace MapDesigner
             //off the picturebox because the pen line is thick.
             //They cannot be more than 1 or the map will move off the picturebox.
             //The thick pen line on the outer edge causes this complexity.
-           // if (myMap.exitCellPlacement == "Top")
-           // {
-
-           // }
-                    //myMap.boardYPos = myMap.myForm.pbxMap.Width - (myMap.myHeight + 2);
             double yPos = (myMap.myForm.pbxMap.Height / 2) - (myMap.myHeight / 2);
             double Xpos = (myMap.myForm.pbxMap.Width / 2) - (myMap.myWidth / 2);
             Math.Round(yPos, 0);
             Math.Round(Xpos, 0);
             myMap.boardXPos = Convert.ToInt32(Xpos);
             myMap.boardYPos = Convert.ToInt32(yPos);
-
-                    
-                    //myMap.boardXPos = 1;
-                    
-            
         }
 
         private void setMapDimensions()
@@ -99,12 +89,12 @@ namespace MapDesigner
             myMap.myHeight = myMap.myCellSize * myMap.rows;
         }
 
-        private void setExitCellPlacement()
+      /*  private void setExitCellPlacement()
         {
             Object selectedItem = myMap.myForm.cbxExitCell.SelectedItem;
             myMap.exitCellPlacement = selectedItem.ToString();
             myMap.myForm.label2.Text = myMap.exitCellPlacement;
-        }
+        }*/
 
         public void setMapComponents()
         {

@@ -152,7 +152,6 @@ namespace MapDesigner
                     int index = cells.FindIndex(item => item.myColumn == col && item.myRow == row);
                     if (index >= 0)
                     {
-
                         if (cell.myColumn == col && cell.myRow == row)
                         {
                             cells.Remove(cell);
