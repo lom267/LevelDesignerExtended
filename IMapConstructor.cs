@@ -13,7 +13,6 @@ namespace MapDesigner
     interface IMapConstructor
     {
         void drawMap(PaintEventArgs e, List<Cell> cells);
-        void drawMapEdges(PaintEventArgs e);
         Pen setPen(CellSide wall);
     }
 }

@@ -22,6 +22,7 @@ namespace MapDesigner
         {
             Graphics g = e.Graphics;
             drawCellBgImage(e, cells);
+            drawHighlightedSquare(g, cells);
 
             for (int i = 0; i < cells.Count; i++)
             {
@@ -31,7 +32,7 @@ namespace MapDesigner
             {
                 drawWalls(1, i, cells, g);
             }
-            drawMapEdges(e);
+            drawBorder(cells, g);
             drawMinotaur(e, cells);
             drawTheseus(e, cells);
             drawExit(e, cells);
@@ -57,27 +58,6 @@ namespace MapDesigner
                 g.DrawLine(setPen(bottomSide), endOfCol + 1,
                 endOfRow, startOfCol - 1, endOfRow);
             }
-        }
-
-        public void drawMapEdges(PaintEventArgs e)
-        {
-            Graphics g = e.Graphics;
-            Pen myPen = new Pen(Brushes.Black, 3);
-
-            int cols = myMapController.myMap.cols;
-            int rows = myMapController.myMap.rows;
-            int boardXPos = myMapController.myMap.boardXPos;
-            int boardYPos = myMapController.myMap.boardYPos;
-            int squareSize = myMapController.myMap.myCellSize;
-
-            Point[] points = new Point[] 
-            { new Point { X = boardXPos - 1, Y = boardYPos }, 
-              new Point { X = boardXPos + (squareSize * cols), Y = boardYPos }, 
-              new Point { X = boardXPos + (squareSize * cols), Y = boardYPos + (squareSize * rows) }, 
-              new Point { X = boardXPos, Y = boardYPos + (squareSize * rows) },
-              new Point { X = boardXPos, Y = boardYPos - 1 } };
-
-            g.DrawLines(myPen, points);
         }
 
         public Pen setPen(CellSide side)
@@ -113,8 +93,33 @@ namespace MapDesigner
 
                 g.DrawImage(cellBG, new RectangleF(new Point(startOfCol,
                 startOfRow), new SizeF(myMapController.myMap.myCellSize, myMapController.myMap.myCellSize)));
+            }
+        }
 
-                if (cells[i].isHighlighted == true)
+        void drawHighlightedSquare(Graphics g, List<Cell> cells)
+        {
+            Point mouse = myMapController.myMap.myForm.pbxMap.PointToClient(Cursor.Position);
+
+            int col = (mouse.X - myMapController.myMap.boardXPos) / myMapController.myMap.myCellSize;
+            int row = (mouse.Y - myMapController.myMap.boardYPos) / myMapController.myMap.myCellSize;
+            int startOfCol = myMapController.myMap.boardXPos + col * myMapController.myMap.myCellSize;
+            int endOfCol = startOfCol + myMapController.myMap.myCellSize;
+            int startOfRow = myMapController.myMap.boardYPos + row * myMapController.myMap.myCellSize;
+            int endOfRow = startOfRow + myMapController.myMap.myCellSize;
+            int rightEdgeOfMap = myMapController.myMap.myForm.pbxMap.Width - myMapController.myMap.boardXPos;
+            int leftEdgeOfMap = myMapController.myMap.boardXPos;
+            int topEdgeOfMap = myMapController.myMap.boardYPos;
+            int bottomEdgeOfMap = myMapController.myMap.myForm.pbxMap.Height - myMapController.myMap.boardYPos;
+
+            if (mouse.X > leftEdgeOfMap &&
+                mouse.X < rightEdgeOfMap &&
+                mouse.Y > topEdgeOfMap &&
+                mouse.Y < bottomEdgeOfMap)
+            {
+                if (mouse.X > startOfCol &&
+                    mouse.X < endOfCol &&
+                    mouse.Y > startOfRow &&
+                    mouse.Y < endOfRow)
                 {
                     Brush brush = new SolidBrush(Color.FromArgb(80, 77, 255, 204));
                     g.FillRectangle(brush, startOfCol, startOfRow, myMapController.myMap.myCellSize, myMapController.myMap.myCellSize);
@@ -122,7 +127,47 @@ namespace MapDesigner
             }
         }
 
-        
+        void drawBorder(List<Cell> cells, Graphics g)
+        {
+            foreach (Cell cell in myMapController.myMap.myCells)
+            {
+                int col = cell.myColumn;
+                int row = cell.myRow;
+                Pen myPen = new Pen(Brushes.Black, 3);
+                int startOfCol = myMapController.myMap.boardXPos + col * myMapController.myMap.myCellSize;
+                int endOfCol = startOfCol + myMapController.myMap.myCellSize;
+                int startOfRow = myMapController.myMap.boardYPos + row * myMapController.myMap.myCellSize;
+                int endOfRow = startOfRow + myMapController.myMap.myCellSize;
+
+                int cellToRight = cells.FindIndex(item => item.myColumn == col + 1 && item.myRow == row);
+                if (cellToRight < 0)
+                {
+                    g.DrawLine(myPen, endOfCol,
+                    startOfRow - 1, endOfCol, endOfRow + 1);
+                }
+
+                int cellToLeft = cells.FindIndex(item => item.myColumn == col - 1 && item.myRow == row);
+                if (cellToLeft < 0)
+                {
+                    g.DrawLine(myPen, startOfCol,
+                    startOfRow - 1, startOfCol, endOfRow + 1);
+                }
+
+                int cellAbove = cells.FindIndex(item => item.myColumn == col && item.myRow == row - 1);
+                if (cellAbove < 0)
+                {
+                    g.DrawLine(myPen, startOfCol - 1,
+                    startOfRow, endOfCol + 1, startOfRow);
+                }
+
+                int cellBelow = cells.FindIndex(item => item.myColumn == col && item.myRow == row + 1);
+                if (cellBelow < 0)
+                {
+                    g.DrawLine(myPen, startOfCol - 1,
+                    endOfRow, endOfCol + 1, endOfRow);
+                }
+            }
+        }
 
         public void drawMinotaur(PaintEventArgs e, List<Cell> cells)
         {

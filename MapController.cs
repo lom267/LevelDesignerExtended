@@ -48,7 +48,7 @@ namespace MapDesigner
             {
                 //We have to subtract 1 from the cellSize to allow for the thick outer pen lines
                 //The plus 1 leaves room for one more cell for the exit
-                double cellSize = myMap.myForm.pbxMap.Width / (getLargestOutOfRowsAndCols() + 1) - 1;
+                double cellSize = ((myMap.myForm.pbxMap.Width / getLargestOutOfRowsAndCols()) - 2 );
                 Math.Round(cellSize, 0);
                 myMap.myCellSize = Convert.ToInt32(cellSize);
 
