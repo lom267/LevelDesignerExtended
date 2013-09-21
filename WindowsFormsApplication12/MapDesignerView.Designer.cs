@@ -40,8 +40,8 @@
             this.lblCellBg = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblWarning = new System.Windows.Forms.Label();
-            this.rbDiamond = new System.Windows.Forms.RadioButton();
             this.pbxMap = new System.Windows.Forms.PictureBox();
+            this.rbDiamond = new System.Windows.Forms.RadioButton();
             this.rbClay = new System.Windows.Forms.RadioButton();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.rbBrick = new System.Windows.Forms.RadioButton();
@@ -201,17 +201,6 @@
             this.lblWarning.Size = new System.Drawing.Size(0, 13);
             this.lblWarning.TabIndex = 0;
             // 
-            // rbDiamond
-            // 
-            this.rbDiamond.AutoSize = true;
-            this.rbDiamond.Location = new System.Drawing.Point(81, 661);
-            this.rbDiamond.Name = "rbDiamond";
-            this.rbDiamond.Size = new System.Drawing.Size(14, 13);
-            this.rbDiamond.TabIndex = 2;
-            this.rbDiamond.TabStop = true;
-            this.rbDiamond.Tag = "diamond";
-            this.rbDiamond.UseVisualStyleBackColor = true;
-            // 
             // pbxMap
             // 
             this.pbxMap.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -228,10 +217,21 @@
             this.pbxMap.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbxMap_MouseMove);
             this.pbxMap.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbxMap_MouseUp);
             // 
+            // rbDiamond
+            // 
+            this.rbDiamond.AutoSize = true;
+            this.rbDiamond.Location = new System.Drawing.Point(81, 661);
+            this.rbDiamond.Name = "rbDiamond";
+            this.rbDiamond.Size = new System.Drawing.Size(14, 13);
+            this.rbDiamond.TabIndex = 2;
+            this.rbDiamond.TabStop = true;
+            this.rbDiamond.Tag = "diamond";
+            this.rbDiamond.UseVisualStyleBackColor = true;
+            // 
             // rbClay
             // 
             this.rbClay.AutoSize = true;
-            this.rbClay.Location = new System.Drawing.Point(81, 321);
+            this.rbClay.Location = new System.Drawing.Point(81, 151);
             this.rbClay.Name = "rbClay";
             this.rbClay.Size = new System.Drawing.Size(14, 13);
             this.rbClay.TabIndex = 3;
@@ -253,7 +253,7 @@
             // rbBrick
             // 
             this.rbBrick.AutoSize = true;
-            this.rbBrick.Location = new System.Drawing.Point(81, 151);
+            this.rbBrick.Location = new System.Drawing.Point(81, 491);
             this.rbBrick.Name = "rbBrick";
             this.rbBrick.Size = new System.Drawing.Size(14, 13);
             this.rbBrick.TabIndex = 1;
@@ -286,7 +286,7 @@
             // rbWood
             // 
             this.rbWood.AutoSize = true;
-            this.rbWood.Location = new System.Drawing.Point(81, 491);
+            this.rbWood.Location = new System.Drawing.Point(81, 321);
             this.rbWood.Name = "rbWood";
             this.rbWood.Size = new System.Drawing.Size(14, 13);
             this.rbWood.TabIndex = 0;
@@ -308,6 +308,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.BackgroundImage = global::MapDesigner.Properties.Resources.images__6_;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.rbDiamond);
             this.panel3.Controls.Add(this.rbBrick);
