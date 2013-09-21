@@ -99,15 +99,15 @@
             // 
             // numCols
             // 
-            this.numCols.Font = new System.Drawing.Font("AR BONNIE", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numCols.Font = new System.Drawing.Font("Papyrus", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numCols.Location = new System.Drawing.Point(252, 129);
             this.numCols.Name = "numCols";
-            this.numCols.Size = new System.Drawing.Size(62, 46);
+            this.numCols.Size = new System.Drawing.Size(62, 50);
             this.numCols.TabIndex = 3;
             // 
             // btnDrawMap
             // 
-            this.btnDrawMap.Font = new System.Drawing.Font("AR BONNIE", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDrawMap.Font = new System.Drawing.Font("Papyrus", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDrawMap.Location = new System.Drawing.Point(15, 204);
             this.btnDrawMap.Name = "btnDrawMap";
             this.btnDrawMap.Size = new System.Drawing.Size(143, 52);
@@ -118,19 +118,19 @@
             // 
             // numRows
             // 
-            this.numRows.Font = new System.Drawing.Font("AR BONNIE", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numRows.Font = new System.Drawing.Font("Papyrus", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numRows.Location = new System.Drawing.Point(252, 65);
             this.numRows.Name = "numRows";
-            this.numRows.Size = new System.Drawing.Size(62, 46);
+            this.numRows.Size = new System.Drawing.Size(62, 50);
             this.numRows.TabIndex = 1;
             // 
             // lblRows
             // 
             this.lblRows.AutoSize = true;
-            this.lblRows.Font = new System.Drawing.Font("AR BONNIE", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRows.Location = new System.Drawing.Point(9, 76);
+            this.lblRows.Font = new System.Drawing.Font("Papyrus", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRows.Location = new System.Drawing.Point(38, 71);
             this.lblRows.Name = "lblRows";
-            this.lblRows.Size = new System.Drawing.Size(74, 35);
+            this.lblRows.Size = new System.Drawing.Size(83, 42);
             this.lblRows.TabIndex = 0;
             this.lblRows.Text = "Rows";
             this.lblRows.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -138,10 +138,10 @@
             // lblCols
             // 
             this.lblCols.AutoSize = true;
-            this.lblCols.Font = new System.Drawing.Font("AR BONNIE", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCols.Location = new System.Drawing.Point(13, 140);
+            this.lblCols.Font = new System.Drawing.Font("Papyrus", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCols.Location = new System.Drawing.Point(38, 131);
             this.lblCols.Name = "lblCols";
-            this.lblCols.Size = new System.Drawing.Size(99, 35);
+            this.lblCols.Size = new System.Drawing.Size(124, 42);
             this.lblCols.TabIndex = 2;
             this.lblCols.Text = "Columns";
             this.lblCols.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -149,10 +149,10 @@
             // lblCellBg
             // 
             this.lblCellBg.AutoSize = true;
-            this.lblCellBg.Font = new System.Drawing.Font("AR DESTINE", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCellBg.Location = new System.Drawing.Point(9, -4);
+            this.lblCellBg.Font = new System.Drawing.Font("Papyrus", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCellBg.Location = new System.Drawing.Point(44, 4);
             this.lblCellBg.Name = "lblCellBg";
-            this.lblCellBg.Size = new System.Drawing.Size(343, 56);
+            this.lblCellBg.Size = new System.Drawing.Size(270, 58);
             this.lblCellBg.TabIndex = 6;
             this.lblCellBg.Text = "Design a Map";
             // 
