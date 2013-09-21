@@ -17,7 +17,6 @@ namespace MapDesigner
         public MapConstructor myMapConstructor { get; set; }
         public MouseEventHandler myDetectMouse { get; set; }
         string dragSourceName;
-        bool btnClicked;
 
         public MapDesignerView()
         {
@@ -33,7 +32,6 @@ namespace MapDesigner
 
         private void btnDraw_Click(object sender, EventArgs e)
         {
-            btnClicked = true;
             myMapController.setMapComponents();
             pbxMap.Invalidate();
 
@@ -61,24 +59,31 @@ namespace MapDesigner
         private void pbxMap_MouseMove(object sender, MouseEventArgs e)
         {
             myDetectMouse.onMouseHover(e, myMap.myCells);
-            if (btnClicked == true)
-            {
-                myDetectMouse.highlightCell(e, myMap.myCells);
-            }
             pbxMap.Invalidate();
         }
 
         private void pbxMap_MouseUp(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
+            Point mouse = myMapController.myMap.myForm.pbxMap.PointToClient(Cursor.Position);
+            int rightEdgeOfMap = myMapController.myMap.myForm.pbxMap.Width - myMapController.myMap.boardXPos;
+            int leftEdgeOfMap = myMapController.myMap.boardXPos;
+            int topEdgeOfMap = myMapController.myMap.boardYPos;
+            int bottomEdgeOfMap = myMapController.myMap.myForm.pbxMap.Height - myMapController.myMap.boardYPos;
+            if (mouse.X > leftEdgeOfMap &&
+                mouse.X < rightEdgeOfMap &&
+                mouse.Y > topEdgeOfMap &&
+                mouse.Y < bottomEdgeOfMap)
             {
-                myDetectMouse.onMouseClick(e, myMap.myCells);
+                if (e.Button == MouseButtons.Left)
+                {
+                    myDetectMouse.onMouseClick(e, myMap.myCells);
+                }
+                if (e.Button == MouseButtons.Right)
+                {
+                    myDetectMouse.editCell(e, myMap.myCells);
+                }
+                pbxMap.Invalidate();
             }
-            if (e.Button == MouseButtons.Right)
-            {
-                myDetectMouse.editCell(e, myMap.myCells);
-            }
-            pbxMap.Invalidate();
         }
 
         private void pbxMap_DragDrop(object sender, DragEventArgs e)
