@@ -65,10 +65,10 @@ namespace MapDesigner
         private void pbxMap_MouseUp(object sender, MouseEventArgs e)
         {
             Point mouse = myMapController.myMap.myForm.pbxMap.PointToClient(Cursor.Position);
-            int rightEdgeOfMap = myMapController.myMap.myForm.pbxMap.Width - myMapController.myMap.boardXPos;
             int leftEdgeOfMap = myMapController.myMap.boardXPos;
+            int rightEdgeOfMap = leftEdgeOfMap + myMapController.myMap.myWidth;
             int topEdgeOfMap = myMapController.myMap.boardYPos;
-            int bottomEdgeOfMap = myMapController.myMap.myForm.pbxMap.Height - myMapController.myMap.boardYPos;
+            int bottomEdgeOfMap = topEdgeOfMap + myMapController.myMap.myHeight;
             if (mouse.X > leftEdgeOfMap &&
                 mouse.X < rightEdgeOfMap &&
                 mouse.Y > topEdgeOfMap &&

@@ -106,10 +106,10 @@ namespace MapDesigner
             int endOfCol = startOfCol + myMapController.myMap.myCellSize;
             int startOfRow = myMapController.myMap.boardYPos + row * myMapController.myMap.myCellSize;
             int endOfRow = startOfRow + myMapController.myMap.myCellSize;
-            int rightEdgeOfMap = myMapController.myMap.myForm.pbxMap.Width - myMapController.myMap.boardXPos;
             int leftEdgeOfMap = myMapController.myMap.boardXPos;
+            int rightEdgeOfMap = leftEdgeOfMap + myMapController.myMap.myWidth;
             int topEdgeOfMap = myMapController.myMap.boardYPos;
-            int bottomEdgeOfMap = myMapController.myMap.myForm.pbxMap.Height - myMapController.myMap.boardYPos;
+            int bottomEdgeOfMap = topEdgeOfMap + myMapController.myMap.myHeight;
 
             if (mouse.X > leftEdgeOfMap &&
                 mouse.X < rightEdgeOfMap &&
