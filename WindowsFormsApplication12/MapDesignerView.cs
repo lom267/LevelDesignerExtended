@@ -28,6 +28,7 @@ namespace MapDesigner
             myMapController.setMinotaurImage();
             myMapController.setTheseusImage();
             myMapController.setExitImage();
+
         }
 
         private void btnDraw_Click(object sender, EventArgs e)
@@ -138,6 +139,30 @@ namespace MapDesigner
                 pbxMap.AllowDrop = true;
                 pbxTheseus.DoDragDrop(pbxExit.Name, DragDropEffects.Copy |
                 DragDropEffects.Move);
+        }
+
+        private void rbBrick_CheckedChanged(object sender, EventArgs e)
+        {
+            myMapController.setCellBgImage();
+            pbxMap.Invalidate();
+        }
+
+        private void rbWood_CheckedChanged(object sender, EventArgs e)
+        {
+            myMapController.setCellBgImage();
+            pbxMap.Invalidate();
+        }
+
+        private void rbDiamond_CheckedChanged(object sender, EventArgs e)
+        {
+            myMapController.setCellBgImage();
+            pbxMap.Invalidate();
+        }
+
+        private void rbClay_CheckedChanged(object sender, EventArgs e)
+        {
+            myMapController.setCellBgImage();
+            pbxMap.Invalidate();
         }
     }
 }

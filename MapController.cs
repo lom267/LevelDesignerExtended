@@ -70,14 +70,22 @@ namespace MapDesigner
             //They cannot be more than 1 or the map will move off the picturebox.
             //The thick pen line on the outer edge causes this complexity.
             //These -1's come about from the thick outer wall line taking one more pixel on the outside
-            double yPos = (myMap.myForm.pbxMap.Height / 2) - (myMap.myHeight / 2) - 1;
-            double Xpos = (myMap.myForm.pbxMap.Width / 2) - (myMap.myWidth / 2) - 1;
+            double yPos = (myMap.myForm.pbxMap.Height / 2) - (myMap.myHeight / 2) ;
+            double Xpos = (myMap.myForm.pbxMap.Width / 2) - (myMap.myWidth / 2) ;
             Math.Round(yPos, 0);
             Math.Round(Xpos, 0);
             myMap.boardXPos = Convert.ToInt32(Xpos);
             myMap.boardYPos = Convert.ToInt32(yPos);
         }
 
+        private void setPbxMapPosition()
+        {
+            double yPos = (myMap.myForm.panel2.Height / 2) - (myMap.myForm.pbxMap.Height / 2) - 1;
+            double Xpos = (myMap.myForm.panel2.Width / 2) - (myMap.myForm.pbxMap.Width / 2) - 1;
+            Math.Round(yPos, 0);
+            Math.Round(Xpos, 0);
+            myMap.myForm.pbxMap.Location = new Point(Convert.ToInt32(Xpos), Convert.ToInt32(yPos));
+        }
         private void setMapDimensions()
         {
             myMap.rows = Convert.ToInt32(myMap.myForm.numRows.Value);
@@ -97,6 +105,7 @@ namespace MapDesigner
             setCells();
             setMapLengthAndHeight();
             setBoardPosition();
+            setPbxMapPosition();
             setCellBgImage();
         }
 

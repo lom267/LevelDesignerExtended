@@ -50,6 +50,7 @@
             this.rbWood = new System.Windows.Forms.RadioButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxTheseus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxExit)).BeginInit();
@@ -63,6 +64,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -79,16 +81,19 @@
             this.panel1.Controls.Add(this.lblRows);
             this.panel1.Controls.Add(this.lblCols);
             this.panel1.Controls.Add(this.lblCellBg);
-            this.panel1.Location = new System.Drawing.Point(4, 12);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(20, 15);
+            this.panel1.Margin = new System.Windows.Forms.Padding(20, 15, 15, 15);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(274, 680);
+            this.panel1.Padding = new System.Windows.Forms.Padding(10);
+            this.panel1.Size = new System.Drawing.Size(265, 719);
             this.panel1.TabIndex = 9;
             // 
             // pbxTheseus
             // 
             this.pbxTheseus.BackgroundImage = global::MapDesigner.Properties.Resources.theseus;
             this.pbxTheseus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbxTheseus.Location = new System.Drawing.Point(186, 567);
+            this.pbxTheseus.Location = new System.Drawing.Point(176, 556);
             this.pbxTheseus.Name = "pbxTheseus";
             this.pbxTheseus.Size = new System.Drawing.Size(100, 100);
             this.pbxTheseus.TabIndex = 1;
@@ -99,7 +104,7 @@
             // 
             this.pbxExit.BackgroundImage = global::MapDesigner.Properties.Resources.exit;
             this.pbxExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbxExit.Location = new System.Drawing.Point(80, 564);
+            this.pbxExit.Location = new System.Drawing.Point(91, 556);
             this.pbxExit.Name = "pbxExit";
             this.pbxExit.Size = new System.Drawing.Size(100, 100);
             this.pbxExit.TabIndex = 2;
@@ -110,7 +115,7 @@
             // 
             this.pbxMinotaur.BackgroundImage = global::MapDesigner.Properties.Resources.minotaur;
             this.pbxMinotaur.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbxMinotaur.Location = new System.Drawing.Point(-9, 567);
+            this.pbxMinotaur.Location = new System.Drawing.Point(1, 556);
             this.pbxMinotaur.Name = "pbxMinotaur";
             this.pbxMinotaur.Size = new System.Drawing.Size(100, 100);
             this.pbxMinotaur.TabIndex = 0;
@@ -129,7 +134,7 @@
             // 
             this.btnDrawMap.AutoSize = true;
             this.btnDrawMap.Font = new System.Drawing.Font("Papyrus", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDrawMap.Location = new System.Drawing.Point(8, 506);
+            this.btnDrawMap.Location = new System.Drawing.Point(13, 474);
             this.btnDrawMap.Name = "btnDrawMap";
             this.btnDrawMap.Size = new System.Drawing.Size(158, 52);
             this.btnDrawMap.TabIndex = 4;
@@ -150,7 +155,7 @@
             this.lblRows.AutoSize = true;
             this.lblRows.BackColor = System.Drawing.Color.Transparent;
             this.lblRows.Font = new System.Drawing.Font("Papyrus", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRows.Location = new System.Drawing.Point(8, 71);
+            this.lblRows.Location = new System.Drawing.Point(18, 81);
             this.lblRows.Name = "lblRows";
             this.lblRows.Size = new System.Drawing.Size(83, 42);
             this.lblRows.TabIndex = 0;
@@ -162,7 +167,7 @@
             this.lblCols.AutoSize = true;
             this.lblCols.BackColor = System.Drawing.Color.Transparent;
             this.lblCols.Font = new System.Drawing.Font("Papyrus", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCols.Location = new System.Drawing.Point(11, 127);
+            this.lblCols.Location = new System.Drawing.Point(21, 137);
             this.lblCols.Name = "lblCols";
             this.lblCols.Size = new System.Drawing.Size(124, 42);
             this.lblCols.TabIndex = 2;
@@ -174,7 +179,7 @@
             this.lblCellBg.AutoSize = true;
             this.lblCellBg.BackColor = System.Drawing.Color.Transparent;
             this.lblCellBg.Font = new System.Drawing.Font("Papyrus", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCellBg.Location = new System.Drawing.Point(-2, 2);
+            this.lblCellBg.Location = new System.Drawing.Point(-1, 12);
             this.lblCellBg.Name = "lblCellBg";
             this.lblCellBg.Size = new System.Drawing.Size(270, 58);
             this.lblCellBg.TabIndex = 6;
@@ -182,15 +187,16 @@
             // 
             // panel2
             // 
-            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.lblWarning);
             this.panel2.Controls.Add(this.pbxMap);
-            this.panel2.Location = new System.Drawing.Point(290, 12);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(300, 15);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0, 15, 15, 15);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(679, 680);
+            this.panel2.Size = new System.Drawing.Size(679, 719);
             this.panel2.TabIndex = 10;
             // 
             // lblWarning
@@ -205,10 +211,10 @@
             // 
             this.pbxMap.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbxMap.BackColor = System.Drawing.Color.Transparent;
-            this.pbxMap.Location = new System.Drawing.Point(5, 5);
+            this.pbxMap.Location = new System.Drawing.Point(5, 24);
             this.pbxMap.Name = "pbxMap";
             this.pbxMap.Padding = new System.Windows.Forms.Padding(1);
-            this.pbxMap.Size = new System.Drawing.Size(670, 670);
+            this.pbxMap.Size = new System.Drawing.Size(650, 650);
             this.pbxMap.TabIndex = 5;
             this.pbxMap.TabStop = false;
             this.pbxMap.DragDrop += new System.Windows.Forms.DragEventHandler(this.pbxMap_DragDrop);
@@ -220,55 +226,59 @@
             // rbDiamond
             // 
             this.rbDiamond.AutoSize = true;
-            this.rbDiamond.Location = new System.Drawing.Point(81, 661);
+            this.rbDiamond.Location = new System.Drawing.Point(64, 643);
             this.rbDiamond.Name = "rbDiamond";
             this.rbDiamond.Size = new System.Drawing.Size(14, 13);
             this.rbDiamond.TabIndex = 2;
             this.rbDiamond.TabStop = true;
             this.rbDiamond.Tag = "diamond";
             this.rbDiamond.UseVisualStyleBackColor = true;
+            this.rbDiamond.CheckedChanged += new System.EventHandler(this.rbDiamond_CheckedChanged);
             // 
             // rbClay
             // 
             this.rbClay.AutoSize = true;
-            this.rbClay.Location = new System.Drawing.Point(81, 151);
+            this.rbClay.Location = new System.Drawing.Point(64, 148);
             this.rbClay.Name = "rbClay";
             this.rbClay.Size = new System.Drawing.Size(14, 13);
             this.rbClay.TabIndex = 3;
             this.rbClay.TabStop = true;
             this.rbClay.Tag = "clay";
             this.rbClay.UseVisualStyleBackColor = true;
+            this.rbClay.CheckedChanged += new System.EventHandler(this.rbClay_CheckedChanged);
             // 
             // pictureBox3
             // 
             this.pictureBox3.BackgroundImage = global::MapDesigner.Properties.Resources.clay;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Location = new System.Drawing.Point(13, 5);
+            this.pictureBox3.Location = new System.Drawing.Point(9, 12);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(145, 140);
+            this.pictureBox3.Size = new System.Drawing.Size(130, 130);
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
             // 
             // rbBrick
             // 
             this.rbBrick.AutoSize = true;
-            this.rbBrick.Location = new System.Drawing.Point(81, 491);
+            this.rbBrick.Location = new System.Drawing.Point(64, 474);
             this.rbBrick.Name = "rbBrick";
             this.rbBrick.Size = new System.Drawing.Size(14, 13);
             this.rbBrick.TabIndex = 1;
             this.rbBrick.TabStop = true;
             this.rbBrick.Tag = "brick";
             this.rbBrick.UseVisualStyleBackColor = true;
+            this.rbBrick.CheckedChanged += new System.EventHandler(this.rbBrick_CheckedChanged);
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::MapDesigner.Properties.Resources.diamond;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(13, 510);
+            this.pictureBox1.Location = new System.Drawing.Point(9, 500);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(10);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(145, 145);
+            this.pictureBox1.Size = new System.Drawing.Size(130, 130);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -277,31 +287,32 @@
             this.pictureBox4.BackgroundImage = global::MapDesigner.Properties.Resources.brick;
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox4.Location = new System.Drawing.Point(13, 340);
+            this.pictureBox4.Location = new System.Drawing.Point(9, 327);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(145, 145);
+            this.pictureBox4.Size = new System.Drawing.Size(130, 130);
             this.pictureBox4.TabIndex = 3;
             this.pictureBox4.TabStop = false;
             // 
             // rbWood
             // 
             this.rbWood.AutoSize = true;
-            this.rbWood.Location = new System.Drawing.Point(81, 321);
+            this.rbWood.Location = new System.Drawing.Point(64, 308);
             this.rbWood.Name = "rbWood";
             this.rbWood.Size = new System.Drawing.Size(14, 13);
             this.rbWood.TabIndex = 0;
             this.rbWood.TabStop = true;
             this.rbWood.Tag = "wood";
             this.rbWood.UseVisualStyleBackColor = true;
+            this.rbWood.CheckedChanged += new System.EventHandler(this.rbWood_CheckedChanged);
             // 
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = global::MapDesigner.Properties.Resources.wood;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Location = new System.Drawing.Point(13, 170);
+            this.pictureBox2.Location = new System.Drawing.Point(9, 167);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(145, 145);
+            this.pictureBox2.Size = new System.Drawing.Size(130, 130);
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
@@ -310,18 +321,39 @@
             this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.BackgroundImage = global::MapDesigner.Properties.Resources.images__6_;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.pictureBox3);
+            this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Controls.Add(this.rbDiamond);
             this.panel3.Controls.Add(this.rbBrick);
             this.panel3.Controls.Add(this.rbClay);
-            this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Controls.Add(this.pictureBox4);
-            this.panel3.Controls.Add(this.pictureBox3);
             this.panel3.Controls.Add(this.pictureBox2);
             this.panel3.Controls.Add(this.rbWood);
-            this.panel3.Location = new System.Drawing.Point(982, 12);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(994, 15);
+            this.panel3.Margin = new System.Windows.Forms.Padding(0, 15, 20, 15);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(177, 680);
+            this.panel3.Padding = new System.Windows.Forms.Padding(10);
+            this.panel3.Size = new System.Drawing.Size(270, 719);
             this.panel3.TabIndex = 11;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel3, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1284, 749);
+            this.tableLayoutPanel1.TabIndex = 12;
             // 
             // MapDesignerView
             // 
@@ -332,13 +364,12 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.BackgroundImage = global::MapDesigner.Properties.Resources.images__5_;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1350, 729);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1284, 749);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.DoubleBuffered = true;
             this.Name = "MapDesignerView";
             this.Text = "Design a Map";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxTheseus)).EndInit();
@@ -355,6 +386,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -383,6 +415,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         public System.Windows.Forms.RadioButton rbDiamond;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 
     }
 }
