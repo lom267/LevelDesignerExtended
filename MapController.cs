@@ -69,8 +69,9 @@ namespace MapDesigner
             //off the picturebox because the pen line is thick.
             //They cannot be more than 1 or the map will move off the picturebox.
             //The thick pen line on the outer edge causes this complexity.
-            double yPos = (myMap.myForm.pbxMap.Height / 2) - (myMap.myHeight / 2);
-            double Xpos = (myMap.myForm.pbxMap.Width / 2) - (myMap.myWidth / 2);
+            //These -1's come about from the thick outer wall line taking one more pixel on the outside
+            double yPos = (myMap.myForm.pbxMap.Height / 2) - (myMap.myHeight / 2) - 1;
+            double Xpos = (myMap.myForm.pbxMap.Width / 2) - (myMap.myWidth / 2) - 1;
             Math.Round(yPos, 0);
             Math.Round(Xpos, 0);
             myMap.boardXPos = Convert.ToInt32(Xpos);
