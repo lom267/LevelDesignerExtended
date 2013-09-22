@@ -41,7 +41,6 @@ namespace MapDesigner
         public CellSide myBottomWall { get; set; }
         public int myColumn { get; set; }
         public int myRow { get; set; }
-        public bool isHighlighted { get; set; }
     }
 
     public class CellSide
