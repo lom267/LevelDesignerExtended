@@ -86,14 +86,15 @@
             this.panel1.Margin = new System.Windows.Forms.Padding(20, 15, 15, 15);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(10);
-            this.panel1.Size = new System.Drawing.Size(265, 719);
+            this.panel1.Size = new System.Drawing.Size(265, 711);
             this.panel1.TabIndex = 9;
             // 
             // pbxTheseus
             // 
+            this.pbxTheseus.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.pbxTheseus.BackgroundImage = global::MapDesigner.Properties.Resources.theseus;
             this.pbxTheseus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbxTheseus.Location = new System.Drawing.Point(176, 556);
+            this.pbxTheseus.Location = new System.Drawing.Point(164, 596);
             this.pbxTheseus.Name = "pbxTheseus";
             this.pbxTheseus.Size = new System.Drawing.Size(100, 100);
             this.pbxTheseus.TabIndex = 1;
@@ -102,9 +103,10 @@
             // 
             // pbxExit
             // 
+            this.pbxExit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.pbxExit.BackgroundImage = global::MapDesigner.Properties.Resources.exit;
             this.pbxExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbxExit.Location = new System.Drawing.Point(91, 556);
+            this.pbxExit.Location = new System.Drawing.Point(84, 596);
             this.pbxExit.Name = "pbxExit";
             this.pbxExit.Size = new System.Drawing.Size(100, 100);
             this.pbxExit.TabIndex = 2;
@@ -113,9 +115,10 @@
             // 
             // pbxMinotaur
             // 
+            this.pbxMinotaur.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.pbxMinotaur.BackgroundImage = global::MapDesigner.Properties.Resources.minotaur;
             this.pbxMinotaur.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbxMinotaur.Location = new System.Drawing.Point(1, 556);
+            this.pbxMinotaur.Location = new System.Drawing.Point(-1, 596);
             this.pbxMinotaur.Name = "pbxMinotaur";
             this.pbxMinotaur.Size = new System.Drawing.Size(100, 100);
             this.pbxMinotaur.TabIndex = 0;
@@ -132,9 +135,10 @@
             // 
             // btnDrawMap
             // 
+            this.btnDrawMap.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnDrawMap.AutoSize = true;
             this.btnDrawMap.Font = new System.Drawing.Font("Papyrus", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDrawMap.Location = new System.Drawing.Point(13, 474);
+            this.btnDrawMap.Location = new System.Drawing.Point(9, 538);
             this.btnDrawMap.Name = "btnDrawMap";
             this.btnDrawMap.Size = new System.Drawing.Size(158, 52);
             this.btnDrawMap.TabIndex = 4;
@@ -196,7 +200,7 @@
             this.panel2.Location = new System.Drawing.Point(300, 15);
             this.panel2.Margin = new System.Windows.Forms.Padding(0, 15, 15, 15);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(679, 719);
+            this.panel2.Size = new System.Drawing.Size(679, 711);
             this.panel2.TabIndex = 10;
             // 
             // lblWarning
@@ -211,7 +215,7 @@
             // 
             this.pbxMap.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbxMap.BackColor = System.Drawing.Color.Transparent;
-            this.pbxMap.Location = new System.Drawing.Point(5, 24);
+            this.pbxMap.Location = new System.Drawing.Point(5, 20);
             this.pbxMap.Name = "pbxMap";
             this.pbxMap.Padding = new System.Windows.Forms.Padding(1);
             this.pbxMap.Size = new System.Drawing.Size(650, 650);
@@ -334,7 +338,7 @@
             this.panel3.Margin = new System.Windows.Forms.Padding(0, 15, 20, 15);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(10);
-            this.panel3.Size = new System.Drawing.Size(270, 719);
+            this.panel3.Size = new System.Drawing.Size(270, 711);
             this.panel3.TabIndex = 11;
             // 
             // tableLayoutPanel1
@@ -352,7 +356,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1284, 749);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1284, 741);
             this.tableLayoutPanel1.TabIndex = 12;
             // 
             // MapDesignerView
@@ -364,7 +368,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.BackgroundImage = global::MapDesigner.Properties.Resources.images__5_;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1284, 749);
+            this.ClientSize = new System.Drawing.Size(1284, 741);
             this.Controls.Add(this.tableLayoutPanel1);
             this.DoubleBuffered = true;
             this.Name = "MapDesignerView";

@@ -34,3 +34,12 @@ C:\Extended\WindowsFormsApplication12\obj\Debug\MapDesigner.csprojResolveAssembl
 C:\Extended\WindowsFormsApplication12\obj\Debug\MapDesigner.MapDesignerView.resources
 C:\Extended\WindowsFormsApplication12\obj\Debug\MapDesigner.Properties.Resources.resources
 C:\Extended\WindowsFormsApplication12\obj\Debug\MapDesigner.csproj.GenerateResource.Cache
+C:\w\WindowsFormsApplication12\bin\Debug\WindowsFormsApplication12.exe.config
+C:\w\WindowsFormsApplication12\obj\Debug\WindowsFormsApplication12.exe
+C:\w\WindowsFormsApplication12\obj\Debug\WindowsFormsApplication12.pdb
+C:\w\WindowsFormsApplication12\bin\Debug\WindowsFormsApplication12.exe
+C:\w\WindowsFormsApplication12\bin\Debug\WindowsFormsApplication12.pdb
+C:\w\WindowsFormsApplication12\obj\Debug\MapDesigner.csprojResolveAssemblyReference.cache
+C:\w\WindowsFormsApplication12\obj\Debug\MapDesigner.MapDesignerView.resources
+C:\w\WindowsFormsApplication12\obj\Debug\MapDesigner.Properties.Resources.resources
+C:\w\WindowsFormsApplication12\obj\Debug\MapDesigner.csproj.GenerateResource.Cache

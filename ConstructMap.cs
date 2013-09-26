@@ -21,7 +21,22 @@ namespace MapDesigner
         public void drawMap(PaintEventArgs e, List<Cell> cells)
         {
             Graphics g = e.Graphics;
-            drawCellBgImage(e, cells);
+
+            try
+            {
+                drawCellBgImage(e, cells);
+            }
+            catch (ArgumentNullException)
+            {
+                myMapController.myMap.myForm.lblWarning.Text = "Please select a cell background image before drawing the map.";
+                return;
+            }
+            catch (Exception ex)
+            {
+                myMapController.myMap.myForm.lblWarning.Text = "An error occured: " + ex.Message;
+                return;
+            }
+
             drawHighlightedSquare(g, cells);
 
             for (int i = 0; i < cells.Count; i++)
@@ -32,6 +47,7 @@ namespace MapDesigner
             {
                 drawWalls(1, i, cells, g);
             }
+
             drawBorder(cells, g);
             drawMinotaur(e, cells);
             drawTheseus(e, cells);
@@ -90,7 +106,7 @@ namespace MapDesigner
                 int startOfRow = mapData[2];
 
                 Bitmap cellBG = cells[i].myBgImage;
-
+                
                 g.DrawImage(cellBG, new RectangleF(new Point(startOfCol,
                 startOfRow), new SizeF(myMapController.myMap.myCellSize, myMapController.myMap.myCellSize)));
             }
